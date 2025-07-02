@@ -10,7 +10,10 @@ test("Launch chrome browser any url", async function ({ browser }) {
   await page.goto("https://www.amazon.in/");
 });
 
-test("Another test", async ({ page }) => {
+test.only("Another test", async ({ page }) => {
   await page.goto("https://playwright.dev/docs/intro");
+  console.log( await page.title())
   //test.only method will trigger only 1 test, if we dont want to inject or reuse previous sessions need not to mention context
+  await expect(page).toHaveTitle('Installation | Playwright')
+
 });

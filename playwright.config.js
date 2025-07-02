@@ -1,20 +1,15 @@
 // @ts-check
 
-
 const config = {
-
-  testDir: './tests',
+  testDir: "./tests",
   timeout: 40000,
+  reporter: "html",
   expect: {
-    timeout: 40000
+    timeout: 4000,
   },
   use: {
-
-    browserName: 'chromium',
-    headless: false
-  }
-
-
-}
-module.exports=config;
-
+    browserName: "chromium",
+    headless: false,
+  },
+};
+module.exports = config;
