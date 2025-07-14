@@ -9,3 +9,7 @@ https://the-internet.herokuapp.com/javascript_alerts
 https://the-internet.herokuapp.com/upload
 https://the-internet.herokuapp.com/dynamic_loading/2
 https://selenium.obsqurazone.com/index.php
+
+
+
+https://docs.google.com/document/d/1RmfQAjkZJvvtL_I_44SdKs9V9n0wQHFg6HDxfvUj1aA/edit?usp=sharing
