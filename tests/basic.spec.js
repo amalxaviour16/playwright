@@ -8,12 +8,59 @@ test("Launch chrome browser any url", async function ({ browser }) {
   const page = await context.newPage();
   const page1 = await context.newPage(); //launch new page blank
   await page.goto("https://www.amazon.in/");
+  await page1.goto("https://www.flipkart.com/");
+
+  //Run command npx playwright test
 });
 
-test.only("Another test", async ({ page }) => {
+test("Another test", async ({ page }) => {
+  //If we dont have no properties to add  if we want to open blank context do as above pass page as paramter
   await page.goto("https://playwright.dev/docs/intro");
-  console.log( await page.title())
+  console.log(await page.title());
   //test.only method will trigger only 1 test, if we dont want to inject or reuse previous sessions need not to mention context
-  await expect(page).toHaveTitle('Installation | Playwright')
+  await expect(page).toHaveTitle("Installation | Playwright");
+});
 
+test("Locators,GetText", async ({ page }) => {
+  //TO Enter value use $locator.fill()
+  //Get text -> $locator.textContent()
+  //array of element $$locatorName.locator('xpath').nth(0);
+  //array of element $$locatorName.locator('xpath').first();
+  // $$locatorArrayName.allTextConetnts() -> will give an array of all elements
+  //$locator.isChecked() -> returns true if selected already else false
+  //$locator.check() , $locator.unCheck() -> to select or not select radio/checkbox by checking its state
+
+  await page.goto("https://demo.guru99.com/test/radio.html");
+  let $radioButton = page.locator('//input[@value="Option 1"]');
+  let $textContent = page.locator(
+    '//strong[contains(text(),"Radio")]//parent::div'
+  );
+  await $radioButton.click();
+  console.log("Content " + (await $textContent.textContent()));
+});
+
+test("Select DropDown", async ({ page }) => {
+  await page.goto("https://www.amazon.in/");
+  let $dropDown = page.locator('//select[@id="searchDropdownBox"]');
+  await $dropDown.selectOption("Amazon Pharmacy");
+  await $dropDown.selectOption("search-alias=appliances");
+  //await page.pause();
+});
+
+test("Window switching", async ({ browser }) => {
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  await page.goto("https://the-internet.herokuapp.com/windows");
+  let $clickHere = page.locator('//a[contains(text(),"Click Here")]');
+
+  const [newPageOpened] = await Promise.all([
+    context.waitForEvent("page"),
+    $clickHere.click(),
+  ]);
+  //promise.all method return array
+  let $newWindow = await newPageOpened.locator(
+    '//h3[contains(text(),"New Window")]'
+  );
+  await $newWindow.waitFor();
+  console.log("New Window content " + (await $newWindow.textContent()));
 });
