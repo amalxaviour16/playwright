@@ -39,11 +39,13 @@ test("Locators,GetText", async ({ page }) => {
   console.log("Content " + (await $textContent.textContent()));
 });
 
-test("Select DropDown", async ({ page }) => {
+test("Select DropDown/Screenshot", async ({ page }) => {
   await page.goto("https://www.amazon.in/");
   let $dropDown = page.locator('//select[@id="searchDropdownBox"]');
   await $dropDown.selectOption("Amazon Pharmacy");
   await $dropDown.selectOption("search-alias=appliances");
+  await page.screenshot({path:'scrshot.png'})
+  await $dropDown.screenshot({path:'elementImage.png'})
   //await page.pause();
 });
 
