@@ -1,7 +1,8 @@
 // @ts-check
 
 const config = {
-  testDir: "./tests",
+  testDir: "./tests/specs",
+  testMatch: "01-login-flow.spec.js",
   timeout: 40000,
   reporter: "html",
   expect: {
