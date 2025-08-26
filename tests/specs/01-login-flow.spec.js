@@ -17,7 +17,7 @@ test.describe.serial("End to end script to create admin user", () => {
     await loginPage.launchUrl();
     await loginPage.login(loginData.username, loginData.password);
     // await page.waitForTimeout(5000);
-    await expect(homePage.$profileName).toBeVisible();
+    await expect(homePage.$profileName('Admin')).toBeVisible();
   });
 
   test("Navigate to admin user page", async () => {
