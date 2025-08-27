@@ -7,6 +7,10 @@ import loginData from "../test-data/login-data.json";
 
 let page;
 let context;
+let encoded=btoa(loginData);
+//decoding let data=atob(data)
+//json.prse(decoded)
+
 
 test.describe.serial("End to end script to create admin user", () => {
   test("Login as Admin", async ({ browser }) => {
