@@ -20,3 +20,7 @@ https://docs.google.com/document/d/1RmfQAjkZJvvtL_I_44SdKs9V9n0wQHFg6HDxfvUj1aA/
 Excel read dependancy 
 npm install exceljs --save-dev
 
+
+////To change execution policy to install typescript
+
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned 
