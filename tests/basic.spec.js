@@ -44,8 +44,8 @@ test("Select DropDown/Screenshot", async ({ page }) => {
   let $dropDown = page.locator('//select[@id="searchDropdownBox"]');
   await $dropDown.selectOption("Amazon Pharmacy");
   await $dropDown.selectOption("search-alias=appliances");
-  await page.screenshot({path:'scrshot.png'})
-  await $dropDown.screenshot({path:'elementImage.png'})
+  await page.screenshot({ path: "scrshot.png" });
+  await $dropDown.screenshot({ path: "elementImage.png" });
   //await page.pause();
 });
 
@@ -65,4 +65,23 @@ test("Window switching", async ({ browser }) => {
   );
   await $newWindow.waitFor();
   console.log("New Window content " + (await $newWindow.textContent()));
+});
+
+test("Locator All Text contents,Inner Text", async ({ page }) => {
+  let arrayMenus = [],
+    textDt = [];
+  await page.goto("https://selenium.qabible.in/simple-form-demo.php");
+  let $allMenu = page.locator('//div[@id="collapsibleNavbar"]//ul//a');
+  await $allMenu.nth(0).waitFor();
+  let allMenus = await $allMenu.allTextContents();
+  let textDatas = await $allMenu.allInnerTexts(); //Dont retrieve spaces before and after texts
+  allMenus = allMenus.map((item) => item.trim());
+
+  for (let i = 0; i < (await $allMenu.count()); i++) {
+    arrayMenus.push(await $allMenu.nth(i).textContent());
+    textDt.push(await $allMenu.nth(i).innerText());
+  }
+  //$locator.innerText()   method will fetch only text will not fetch white space before and after
+  await console.log(arrayMenus);
+  await console.log(textDt);
 });
