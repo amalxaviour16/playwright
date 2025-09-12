@@ -11,8 +11,11 @@ const config = {
   use: {
     browserName: "chromium",
     headless: false,
+    launchOptions: {
+      args: ["--start-maximized"],
+    },
     screenshot: "on",
-    trace:"on"
+    trace: "on",
   },
 };
 module.exports = config;
