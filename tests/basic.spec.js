@@ -85,3 +85,11 @@ test("Locator All Text contents,Inner Text", async ({ page }) => {
   await console.log(arrayMenus);
   await console.log(textDt);
 });
+
+test("Visual Testing", async ({ page }) => {
+  await page.goto("https://selenium.qabible.in/simple-form-demo.php");
+  //expect(screenshot).toMatchSnapshot('homepage-custom.png', {
+  //   threshold: 0.2, // Allows 20% difference
+  // });
+  expect(await page.screenshot()).toMatchSnapshot("visual1.png");
+});

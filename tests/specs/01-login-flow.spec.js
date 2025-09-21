@@ -7,21 +7,29 @@ import loginData from "../test-data/login-data.json";
 
 let page;
 let context;
-let encoded=btoa(loginData);
+let homePage;
+let loginPage;
+
+let encoded = btoa(loginData);
 //decoding let data=atob(data)
 //json.prse(decoded)
 
+test.beforeAll(async ({ browser }) => {
+  await console.log("This is Before All........");
+  context = await browser.newContext();
+  page = await context.newPage();
+  loginPage = new LoginPage(page);
+  homePage = new HomePage(page);
+});
+
+test.beforeEach(async () => {});
 
 test.describe.serial("End to end script to create admin user", () => {
-  test("Login as Admin", async ({ browser }) => {
-    context = await browser.newContext();
-    page = await context.newPage();
-    const loginPage = new LoginPage(page);
-    const homePage = new HomePage(page);
+  test("Login as Admin", async () => {
     await loginPage.launchUrl();
     await loginPage.login(loginData.username, loginData.password);
     // await page.waitForTimeout(5000);
-    await expect(homePage.$profileName('Admin')).toBeVisible();
+    await expect(homePage.$profileName("Admin")).toBeVisible();
   });
 
   test("Navigate to admin user page", async () => {
