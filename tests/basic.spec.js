@@ -93,3 +93,8 @@ test("Visual Testing", async ({ page }) => {
   // });
   expect(await page.screenshot()).toMatchSnapshot("visual1.png");
 });
+
+////////////Frame switch
+//const frame = await page.frame({ name: 'a077aa5e' });
+//await expect(await $frame.isVisible()).toBe(true);
+//let $image = await frame.locator('//a[@href="http://"]')
