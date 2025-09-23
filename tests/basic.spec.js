@@ -98,3 +98,23 @@ test("Visual Testing", async ({ page }) => {
 //const frame = await page.frame({ name: 'a077aa5e' });
 //await expect(await $frame.isVisible()).toBe(true);
 //let $image = await frame.locator('//a[@href="http://"]')
+
+
+
+//alert accept
+//page.once('dialog', async dialog => {
+ // console.log(dialog.message());   // Prints alert text
+ // await dialog.accept();           // Clicks OK
+//});
+
+//dismiss
+//page.once('dialog', async dialog => {
+  //console.log(dialog.message());   // Prints confirm text
+ // await dialog.dismiss();          // Clicks Cancel
+//});
+
+//accept with text
+//page.once('dialog', async dialog => {
+//  console.log(dialog.message());   
+ // await dialog.accept('Playwright Input'); // Send text and click OK
+//});
