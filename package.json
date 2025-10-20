@@ -3,15 +3,19 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test":"npx playwright test"
+    "test": "npx playwright test",
+    "report":"npx allure generate ./allure-results --clean",
+    "open":"npx allure open ./allure-report"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@playwright/test": "^1.53.0",
+    "@playwright/test": "^1.56.1",
     "@types/node": "^24.0.3",
+    "allure-commandline": "^2.34.1",
+    "allure-playwright": "^3.4.1",
     "exceljs": "^4.4.0"
   }
 }

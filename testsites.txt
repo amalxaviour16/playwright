@@ -24,3 +24,12 @@ npm install exceljs --save-dev
 ////To change execution policy to install typescript
 
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned 
+
+
+Allure Report generation
+1. First install allure plugin-> npm i -D @playwright/test allure-playwright
+2. install->  npm install --save-dev allure-commandline
+3. After run give -> npx allure generate ./allure-results --clean
+4. To open report give -> npx allure open ./allure-report
+
+

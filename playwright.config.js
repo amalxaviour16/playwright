@@ -4,7 +4,7 @@ const config = {
   testDir: "./tests/specs",
   testMatch: "01-login-flow.spec.js",
   timeout: 40000,
-  reporter: "html",
+  reporter: [["html"], ["allure-playwright"]],
   expect: {
     timeout: 4000,
   },
