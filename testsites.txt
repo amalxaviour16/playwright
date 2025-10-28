@@ -33,3 +33,21 @@ Allure Report generation
 4. To open report give -> npx allure open ./allure-report
 
 
+
+cucumber ///////
+1. install cucumber-> npm install --save-dev @cucumber/cucumber
+2.Install cucumber plugin in visual studio code ,same place where prettier installed
+3. In project level, outside test create a folder features
+4. To generate step defenition skeleton give this command -> npx cucumber-js
+5.inside features folder create a folder step defenitions
+7. in step defenition file const { Given, Then } = require('@cucumber/cucumber'); or import
+8. in step defenition file no need to create class, simply paste auto generated method
+9. in step defenition give -> import { test, expect,playwright } from '@playwright/test';
+10. declare page globally, then inside launch url step defenition give like let browser=await playwright.chromium.launch({headless:false})
+11. to run feature file give 
+12. to run only one feature -> npx cucumber-js tests/features/login.feature
+
+Feature: Failure for me
+   Scenario:
+   Given: 
+   Then: hi "data" of
