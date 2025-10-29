@@ -13,7 +13,7 @@ class LoginPage {
   }
 
   async launchUrl() {
-    await this.page.goto("https://groceryapp.uniqassosiates.com/admin/login");
+    await this.page.goto("https://groceryapp.uniqassosiates.com/admin/");
   }
 }
 
